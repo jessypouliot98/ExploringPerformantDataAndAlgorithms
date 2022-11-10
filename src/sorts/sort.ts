@@ -1,4 +1,4 @@
-const swap = (items: number[], indexA: number, indexB: number) => {
+const swap = <T extends any>(items: T[], indexA: number, indexB: number) => {
   [
     items[indexA],
     items[indexB]
@@ -8,7 +8,7 @@ const swap = (items: number[], indexA: number, indexB: number) => {
   ];
 }
 
-const partition = (items: number[], indexA: number, indexB: number) => {
+const partition = <T extends string | number = string | number>(items: T[], indexA: number, indexB: number) => {
   const pivotValue = items[indexB];
   let pivotIndex = indexA; 
 
@@ -24,7 +24,7 @@ const partition = (items: number[], indexA: number, indexB: number) => {
   return pivotIndex;
 };
 
-const quickSort = (items: number[], indexA: number, indexB: number) => {
+const quickSort = <T extends string | number = string | number>(items: T[], indexA: number, indexB: number) => {
   if (indexA >= indexB) {
       return;
   }
@@ -36,7 +36,7 @@ const quickSort = (items: number[], indexA: number, indexB: number) => {
 }
 
 export namespace sort {
-  export const bubble = (array: number[]) => { // O(n^2) - contains 2 nested loops - exponential time scale - quadratic time
+  export const bubble = <T extends string | number = string | number>(array: T[]) => { // O(n^2) - contains 2 nested loops - exponential time scale - quadratic time
     const sortedArray = [...array];
     const length = array.length;
 
@@ -51,9 +51,17 @@ export namespace sort {
     return sortedArray;
   }
 
-  export const quick = (array: number[]) => { // O(n log n)
+  export const quick = <T extends string | number = string | number>(array: T[]) => { // O(n log n)
     const sortedArray = [...array];
     quickSort(sortedArray, 0, array.length - 1);
     return sortedArray;
+  }
+
+  export const radix = (array: string[]) => {
+    return array; // TODO
+  }
+
+  export const random = <T extends any>(array: T[]) => {
+    return array; // TODO - lol
   }
 }
