@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "anagrams": "ts-node ./anagrams"
+    "anagrams": "ts-node ./src/anagrams"
   },
   "devDependencies": {
     "ts-node": "^10.9.1",
