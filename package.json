@@ -5,7 +5,8 @@
   "license": "MIT",
   "scripts": {
     "generate:anagrams": "ts-node ./scripts/generateLargeAnagramFiles.ts",
-    "anagrams": "ts-node ./src/anagrams"
+    "anagrams": "ts-node ./src/anagrams",
+    "sorts": "ts-node ./src/sorts"
   },
   "devDependencies": {
     "@types/node": "^18.11.9",
