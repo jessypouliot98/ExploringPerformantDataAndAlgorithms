@@ -17,3 +17,7 @@ export const benchmarkCompare = (benchmarks: Benchmark[]) => {
     console.log(`${chalk.bgGreen(bench.name)} ${text}`);
   })
 }
+
+export const asyncBenchmarkCompare = async (benchmarks: Promise<Benchmark>[]) => {
+  return benchmarkCompare(await Promise.all(benchmarks));
+}

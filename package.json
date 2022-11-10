@@ -4,9 +4,11 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
+    "generate:anagrams": "ts-node ./scripts/generateLargeAnagramFiles.ts",
     "anagrams": "ts-node ./src/anagrams"
   },
   "devDependencies": {
+    "@types/node": "^18.11.9",
     "ts-node": "^10.9.1",
     "typescript": "^4.8.4"
   },

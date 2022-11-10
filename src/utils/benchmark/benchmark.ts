@@ -21,5 +21,25 @@ export const benchmark = (name: string, callback: () => void, n: number = N): Be
   console.log(`${chalk.magenta('TOTAL')}: ${chalk.yellow(`${totalMS}ms`)}`);
   console.log('')
 
-  return { name, totalMS }
+  return { name, totalMS };
+}
+
+export const asyncBenchmark = async (name: string, callback: () => Promise<void>, n: number = N): Promise<Benchmark> => {
+  console.log('')
+  console.log(chalk.bgCyan(`[Benchmarking "${name}" with ${`${chalk.bold(n)}x`} executions]`));
+  
+  const start = performance.now();
+  for (let i = 0; i < n; i++) {
+    await callback();
+  }
+  const end = performance.now();
+
+  const totalMS = end - start;
+  const avgMS = totalMS / n;
+
+  console.log(`${chalk.cyan('AVG')}: ${chalk.yellow(`${avgMS}ms`)}`);
+  console.log(`${chalk.magenta('TOTAL')}: ${chalk.yellow(`${totalMS}ms`)}`);
+  console.log('')
+
+  return { name, totalMS };
 }

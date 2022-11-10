@@ -1,4 +1,4 @@
-import { benchmark } from '../utils/benchmark/benchmark';
+import { asyncBenchmark, benchmark } from '../utils/benchmark/benchmark';
 import { benchmarkCompare } from '../utils/benchmark/benchmarkCompare';
 import { test } from '../utils/test/test';
 import { getExtremelyLargeString, getExtremelyLargeStringReversed } from './getExtremelyLargeString';
@@ -40,6 +40,10 @@ benchmarkCompare([
     test(() => getIsAnagram.loopCompareWithObject(shortStringA, shortStringB), true);
   }, 1_000_000), // TOTAL 1009.3234000001103ms 🥇
 ])
+
+asyncBenchmark('isAnagram filePipeLoopCompareWithMap largeFile', async () => {
+  await getIsAnagram.filePipeLoopCompareWithMap('./files/anagram/fileA.txt', './files/anagram/fileB.txt')
+}, 10);
 
 /*
  * Conclusion - Objects are slightly faster than maps in small memory footprints,
