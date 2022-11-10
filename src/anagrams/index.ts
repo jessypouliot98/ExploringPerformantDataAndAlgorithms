@@ -43,7 +43,7 @@ benchmarkCompare([
 
 asyncBenchmark('isAnagram filePipeLoopCompareWithMap largeFile', async () => {
   await getIsAnagram.filePipeLoopCompareWithMap('./files/anagram/fileA.txt', './files/anagram/fileB.txt')
-}, 10);
+}, 10); // AVG 344.83128999993204ms (both files are around 3.8MB)
 
 /*
  * Conclusion - Objects are slightly faster than maps in small memory footprints,
